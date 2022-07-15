@@ -22,7 +22,7 @@ class SingleCategoryService extends ISingleCategoryService {
   @override
   Future<SingleCategoryModel?> fetchSingleCategoryItems() async {
     final response =
-        await dio.get("/${_ProductsPath.categories.name}/computer");
+        await dio.get("/${_ProductsPath.categories.name}/computers");
     if (response.statusCode == HttpStatus.ok) {
       final jsonBody = response.data;
       if (jsonBody is Map<String, dynamic>) {

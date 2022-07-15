@@ -1,3 +1,5 @@
+import '../../single_category/service/single_category_service.dart';
+import '../../single_category/view_ model/single_category_provider.dart';
 import '../service/home_service.dart';
 import '../view_model/home_provider.dart';
 import '../../products/view/products_view.dart';
@@ -22,10 +24,14 @@ class HomeView extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (context) => HomeProvider(HomeService(
-              service,
-            )),
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+              create: (context) => HomeProvider(HomeService(service))),
+          ChangeNotifierProvider(
+              create: (context) =>
+                  SingleCategoryProvider(SingleCategoryService(service)))
+        ],
         builder: (context, child) => Scaffold(
             extendBodyBehindAppBar: true,
             appBar: AppBar(

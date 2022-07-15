@@ -17,6 +17,8 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
+
+  
   # STATE
   provider: ^6.0.0
 

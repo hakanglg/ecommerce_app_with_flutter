@@ -5,7 +5,7 @@ import '../service/single_category_service.dart';
 class SingleCategoryProvider extends ChangeNotifier {
   final ISingleCategoryService singleCategoryService;
 
-  List<Products> productResources = [];
+  List<Products?> productResources = [];
   bool isLoading = false;
 
   SingleCategoryProvider(this.singleCategoryService) {

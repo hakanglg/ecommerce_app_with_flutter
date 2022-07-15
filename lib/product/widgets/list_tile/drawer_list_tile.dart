@@ -1,3 +1,5 @@
+import 'package:ecommerce_app_with_flutter/feature/single_category/view/single_category_view.dart';
+
 import '../../../core/manager/navigation_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
@@ -20,7 +22,7 @@ class _DrawerListTileState extends State<DrawerListTile> with NavigatorManager {
     return ListTile(
       onTap: () {
         print(widget.model.slug);
-
+        navigateToWidget(context, const SingleCategoryView());
         // setState(() {
         //   navigateAndRemoveToWidget(
         //       context, SingleCategoryView(slug: widget.model.slug));

@@ -1,4 +1,6 @@
 import '../../../feature/home/service/home_service.dart';
+import '../../../feature/single_category/service/single_category_service.dart';
+import '../../../feature/single_category/view_ model/single_category_provider.dart';
 import '../../service/project_dio.dart';
 import '../lottie/circular_loading_lottie.dart';
 
@@ -21,9 +23,9 @@ class CategoriesDrawer extends StatelessWidget with ProjectDioMixin {
         providers: [
           ChangeNotifierProvider(
               create: (context) => HomeProvider(HomeService(service))),
-          // ChangeNotifierProvider(
-          //     create: (context) =>
-          //         SingleCategoryProvider(SingleCategoryService(service), null))
+          ChangeNotifierProvider(
+              create: (context) =>
+                  SingleCategoryProvider(SingleCategoryService(service)))
         ],
         builder: (context, child) => Drawer(
               child: context.watch<HomeProvider>().isLoading
