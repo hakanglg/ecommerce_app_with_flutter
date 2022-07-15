@@ -1,6 +1,3 @@
-import '../../../feature/home/service/home_service.dart';
-import '../../../feature/single_category/service/single_category_service.dart';
-import '../../../feature/single_category/view_ model/single_category_provider.dart';
 import '../../service/project_dio.dart';
 import '../lottie/circular_loading_lottie.dart';
 
@@ -19,60 +16,50 @@ class CategoriesDrawer extends StatelessWidget with ProjectDioMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-              create: (context) => HomeProvider(HomeService(service))),
-          ChangeNotifierProvider(
-              create: (context) =>
-                  SingleCategoryProvider(SingleCategoryService(service)))
-        ],
-        builder: (context, child) => Drawer(
-              child: context.watch<HomeProvider>().isLoading
-                  ? const CircularLoadingLottie()
-                  : Column(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: DrawerHeader(
-                              child: Text(
-                            categoriesText,
-                            style: context.textTheme.headline3,
-                          )),
-                        ),
-                        Expanded(
-                          flex: 8,
-                          child: ListView.builder(
-                            itemCount: context
-                                .watch<HomeProvider>()
-                                .categoryResources
-                                .length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return DrawerListTile(
-                                model: context
-                                    .watch<HomeProvider>()
-                                    .categoryResources[index],
-                              );
+    return Drawer(
+      child: context.watch<HomeProvider>().isLoading
+          ? const CircularLoadingLottie()
+          : Column(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: DrawerHeader(
+                      child: Text(
+                    categoriesText,
+                    style: context.textTheme.headline3,
+                  )),
+                ),
+                Expanded(
+                  flex: 8,
+                  child: ListView.builder(
+                    itemCount:
+                        context.watch<HomeProvider>().categoryResources.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return DrawerListTile(
+                        model: context
+                            .watch<HomeProvider>()
+                            .categoryResources[index],
+                      );
 
-                              // ListTile(
-                              //   onTap: () {
-                              //     print("Tapped");
-                              //   },
-                              //   title: Text(
-                              //     context
-                              //         .watch<HomeProvider>()
-                              //         .categoryResources[index]
-                              //         .name
-                              //         .toString()
-                              //         .toTitleCase(),
-                              //     style: context.textTheme.bodyText2,
-                              //   ),
-                              // );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-            ));
+                      // ListTile(
+                      //   onTap: () {
+                      //     print("Tapped");
+                      //   },
+                      //   title: Text(
+                      //     context
+                      //         .watch<HomeProvider>()
+                      //         .categoryResources[index]
+                      //         .name
+                      //         .toString()
+                      //         .toTitleCase(),
+                      //     style: context.textTheme.bodyText2,
+                      //   ),
+                      // );
+                    },
+                  ),
+                ),
+              ],
+            ),
+    );
   }
 }

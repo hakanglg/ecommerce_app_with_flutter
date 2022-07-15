@@ -11,7 +11,7 @@ abstract class ISingleCategoryService {
 
   final Dio dio;
 
-  Future<SingleCategoryModel?> fetchSingleCategoryItems();
+  Future<SingleCategoryModel?> fetchSingleCategoryItems(String slug);
 }
 
 enum _ProductsPath { categories }
@@ -20,9 +20,8 @@ class SingleCategoryService extends ISingleCategoryService {
   SingleCategoryService(super.dio);
 
   @override
-  Future<SingleCategoryModel?> fetchSingleCategoryItems() async {
-    final response =
-        await dio.get("/${_ProductsPath.categories.name}/computers");
+  Future<SingleCategoryModel?> fetchSingleCategoryItems(String slug) async {
+    final response = await dio.get("/${_ProductsPath.categories.name}/$slug");
     if (response.statusCode == HttpStatus.ok) {
       final jsonBody = response.data;
       if (jsonBody is Map<String, dynamic>) {

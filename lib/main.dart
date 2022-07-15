@@ -1,5 +1,7 @@
 import 'package:ecommerce_app_with_flutter/feature/home/service/home_service.dart';
 import 'package:ecommerce_app_with_flutter/feature/home/view_model/home_provider.dart';
+import 'package:ecommerce_app_with_flutter/feature/products/service/products_service.dart';
+import 'package:ecommerce_app_with_flutter/feature/products/view_model/producs_provider.dart';
 import 'package:ecommerce_app_with_flutter/product/service/project_dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,10 +18,13 @@ Future<void> main() async {
     providers: [
       ChangeNotifierProvider(
           create: (context) =>
+              ProductsProvider(ProductsService(ProjectDioMixin().service))),
+      ChangeNotifierProvider(
+          create: (context) =>
               HomeProvider(HomeService(ProjectDioMixin().service))),
       ChangeNotifierProvider(
           create: (context) => SingleCategoryProvider(
-              SingleCategoryService(ProjectDioMixin().service)))
+              SingleCategoryService(ProjectDioMixin().service), null))
     ],
     child: const MyApp(),
   ));

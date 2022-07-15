@@ -4,25 +4,24 @@ import '../service/single_category_service.dart';
 
 class SingleCategoryProvider extends ChangeNotifier {
   final ISingleCategoryService singleCategoryService;
-
+  final String? slug;
   List<Products?> productResources = [];
   bool isLoading = false;
 
-  SingleCategoryProvider(this.singleCategoryService) {
-    _fetch();
-  }
+  SingleCategoryProvider(this.singleCategoryService, this.slug);
 
   void _changeLoading() {
     isLoading = !isLoading;
     notifyListeners();
   }
 
-  Future<void> _fetch() async {
+  Future<void> fetch(slug) async {
     _changeLoading();
-    productResources = (await singleCategoryService.fetchSingleCategoryItems())
-            ?.data
-            ?.products ??
-        [];
+    productResources =
+        (await singleCategoryService.fetchSingleCategoryItems(slug))
+                ?.data
+                ?.products ??
+            [];
     _changeLoading();
   }
 }

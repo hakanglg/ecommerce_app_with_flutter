@@ -58,43 +58,47 @@ class _ProductCardState extends State<ProductCard> with BaseState {
           )
         ],
       ),
-      Positioned(
-        right: 0,
-        child: AnimatedContainer(
-          duration: context.durationLow,
-          height: isZero ? 0 : context.dynamicHeight(0.13),
-          width: isZero ? 0 : context.dynamicWidth(.12),
-          child: Card(
-            color: colorConstants.primary,
-            elevation: 10,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: IconButton(
-                      onPressed: increment,
-                      icon: Icon(isZero ? null : Icons.add)),
-                ),
-                Expanded(
-                    child: Text(
-                  _count.toString(),
-                  style: context.textTheme.bodyText2!
-                      .copyWith(color: colorConstants.white),
-                )),
-                Expanded(
-                  flex: 2,
-                  child: IconButton(
-                      onPressed: decrement,
-                      icon: Icon(isZero ? null : Icons.remove)),
-                )
-              ],
-            ),
+      _incrementAndDeicrementButton(context),
+    ]);
+  }
+
+  Positioned _incrementAndDeicrementButton(BuildContext context) {
+    return Positioned(
+      right: 0,
+      child: AnimatedContainer(
+        duration: context.durationLow,
+        height: isZero ? 0 : context.dynamicHeight(0.13),
+        width: isZero ? 0 : context.dynamicWidth(.12),
+        child: Card(
+          color: colorConstants.primary,
+          elevation: 10,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 2,
+                child: IconButton(
+                    onPressed: increment,
+                    icon: Icon(isZero ? null : Icons.add)),
+              ),
+              Expanded(
+                  child: Text(
+                _count.toString(),
+                style: context.textTheme.bodyText2!
+                    .copyWith(color: colorConstants.white),
+              )),
+              Expanded(
+                flex: 2,
+                child: IconButton(
+                    onPressed: decrement,
+                    icon: Icon(isZero ? null : Icons.remove)),
+              )
+            ],
           ),
         ),
       ),
-    ]);
+    );
   }
 
   Row _productPriceAndAddBagSection(BuildContext context) {
