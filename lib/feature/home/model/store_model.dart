@@ -33,6 +33,9 @@ class Data {
   String? updatedAt;
   String? image;
 
+  @JsonKey(ignore: true)
+  int count = 0;
+
   Data({this.products, this.sId, this.name, this.slug});
 
   factory Data.fromJson(Map<String, dynamic> json) {

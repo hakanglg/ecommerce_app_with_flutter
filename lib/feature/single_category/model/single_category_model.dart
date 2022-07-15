@@ -49,6 +49,9 @@ class Products {
   String? updatedAt;
   String? slug;
 
+  @JsonKey(ignore: true)
+  int count = 0;
+
   Products(
       {this.sId,
       this.title,

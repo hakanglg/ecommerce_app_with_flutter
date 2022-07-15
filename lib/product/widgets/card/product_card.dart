@@ -1,3 +1,6 @@
+import 'package:ecommerce_app_with_flutter/product/manager/shop_manager.dart';
+import 'package:provider/provider.dart';
+
 import '../../../core/base/base_state.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
@@ -79,7 +82,8 @@ class _ProductCardState extends State<ProductCard> with BaseState {
               Expanded(
                 flex: 2,
                 child: IconButton(
-                    onPressed: increment,
+                    onPressed: () =>
+                        context.read<ShopManager>().incrementItem(widget.model),
                     icon: Icon(isZero ? null : Icons.add)),
               ),
               Expanded(
@@ -91,7 +95,9 @@ class _ProductCardState extends State<ProductCard> with BaseState {
               Expanded(
                 flex: 2,
                 child: IconButton(
-                    onPressed: decrement,
+                    onPressed: () => context
+                        .read<ShopManager>()
+                        .deIncrementItem(widget.model),
                     icon: Icon(isZero ? null : Icons.remove)),
               )
             ],

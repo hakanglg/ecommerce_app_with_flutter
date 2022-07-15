@@ -18,7 +18,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
-  
+  logger: ^1.1.0  
   # STATE
   provider: ^6.0.0
 
@@ -40,6 +40,7 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
   build_runner: ^2.1.11
+  
 
 
 flutter:
