@@ -18,6 +18,7 @@ class HomeView extends StatelessWidget
   final String subtitle = "You've never seen it before!";
   final String title = "NEW";
   final String buttonText = "View All";
+  // TODO: add search bar
 
   @override
   Widget build(BuildContext context) {
