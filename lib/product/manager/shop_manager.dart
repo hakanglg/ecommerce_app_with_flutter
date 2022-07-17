@@ -7,8 +7,14 @@ class ShopManager extends ChangeNotifier {
 
   double totalMoney = 0;
 
+  late List<Products?> filteredListItems = shopListItems.toSet().toList();
+
   int? currentCount(Products? model) {
     return model?.count;
+  }
+
+  int? sumCount(Products? model) {
+    return model!.count * model.price!;
   }
 
   void sumTotalMoney() {
@@ -19,8 +25,8 @@ class ShopManager extends ChangeNotifier {
   }
 
   void addShopItem(Products? model) {
-    model?.count++;
     shopListItems.add(model);
+    model?.count++;
     sumTotalMoney();
     notifyListeners();
   }
@@ -32,30 +38,4 @@ class ShopManager extends ChangeNotifier {
     sumTotalMoney();
     notifyListeners();
   }
-
-  // void incrementItem(Products? model) {
-  //   // if (!shopListItems.contains(model)) {
-  //   // } else {
-  //   //   shopListItems
-  //   //       .singleWhere((element) => element?.sId == model?.sId)
-  //   //       ?.count++;
-  //   //   sumTotalMoney();
-  //   // }
-  //   Logger().wtf(model?.count.toString());
-  //   // shopListItems.singleWhere((element) => element?.sId == model?.sId)?.count++;
-  //   // sumTotalMoney();
-  //   notifyListeners();
-  // }
-
-  // void deIncrementItem(Products? model) {
-  //   if (!shopListItems.contains(model)) {
-  //     Logger().wtf("ShopManager: deIncrementItem: model not found");
-  //   } else {
-  //     shopListItems
-  //         .singleWhere((element) => element!.sId == model?.sId)
-  //         ?.count--;
-  //     sumTotalMoney();
-  //   }
-  //   notifyListeners();
-  // }
 }

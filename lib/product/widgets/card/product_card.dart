@@ -1,11 +1,11 @@
 import 'package:ecommerce_app_with_flutter/product/manager/shop_manager.dart';
+import 'package:ecommerce_app_with_flutter/product/widgets/image/dummy_product_image.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/base/base_state.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
-import '../../../core/constants/image/image_enum.dart';
 import '../../../feature/products/model/store_model.dart';
 
 class ProductCard extends StatefulWidget {
@@ -17,9 +17,6 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> with BaseState {
-  final String _dummyImageSrc =
-      "https://m.media-amazon.com/images/I/B1qmQK-r4OS._CLa%7C2140%2C2000%7C61KAP4wDG-L.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UX466_.png";
-
   bool _isZero = true;
 
   void change_IsZero() {
@@ -27,11 +24,6 @@ class _ProductCardState extends State<ProductCard> with BaseState {
       _isZero = !_isZero;
     });
   }
-
-  Widget get _dummyProductImage => Image.asset(
-        ImageItems.DummyProductImage.imagePathPng,
-        fit: BoxFit.cover,
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +33,9 @@ class _ProductCardState extends State<ProductCard> with BaseState {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
+          const Expanded(
             flex: 3,
-            child: _dummyProductImage,
+            child: DummyProductImage(),
           ),
           Expanded(
             child: _productTitleSection(context),
