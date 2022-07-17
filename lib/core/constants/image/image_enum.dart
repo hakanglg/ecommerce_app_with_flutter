@@ -1,4 +1,4 @@
-enum ImageItems { HomeBackground, ProductBackground }
+enum ImageItems { HomeBackground, ProductBackground, DummyProductImage }
 
 extension ImageItemsExtension on ImageItems {
   String _path() {
@@ -7,6 +7,8 @@ extension ImageItemsExtension on ImageItems {
         return "bg_image";
       case ImageItems.ProductBackground:
         return "bg_products";
+      case ImageItems.DummyProductImage:
+        return "img_dummy_product";
     }
   }
 

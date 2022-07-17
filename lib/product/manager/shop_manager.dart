@@ -13,9 +13,7 @@ class ShopManager extends ChangeNotifier {
 
   void sumTotalMoney() {
     totalMoney = shopListItems.fold(
-        0,
-        (previousValue, element) =>
-            previousValue + element!.price! * element.count);
+        0, (previousValue, element) => previousValue + element!.price!);
     print(totalMoney);
     notifyListeners();
   }

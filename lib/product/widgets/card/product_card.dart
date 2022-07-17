@@ -5,6 +5,7 @@ import '../../../core/base/base_state.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
+import '../../../core/constants/image/image_enum.dart';
 import '../../../feature/products/model/store_model.dart';
 
 class ProductCard extends StatefulWidget {
@@ -17,15 +18,20 @@ class ProductCard extends StatefulWidget {
 
 class _ProductCardState extends State<ProductCard> with BaseState {
   final String _dummyImageSrc =
-      "https://www.nicepng.com/png/full/98-980274_clothing-clipart-nrilaot84-clipart-clothes.png";
+      "https://m.media-amazon.com/images/I/B1qmQK-r4OS._CLa%7C2140%2C2000%7C61KAP4wDG-L.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_AC_UX466_.png";
 
-  bool isZero = true;
+  bool _isZero = true;
 
-  void changeIsZero() {
+  void change_IsZero() {
     setState(() {
-      isZero = !isZero;
+      _isZero = !_isZero;
     });
   }
+
+  Widget get _dummyProductImage => Image.asset(
+        ImageItems.DummyProductImage.imagePathPng,
+        fit: BoxFit.cover,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +43,7 @@ class _ProductCardState extends State<ProductCard> with BaseState {
         children: [
           Expanded(
             flex: 3,
-            child: _productImageSection(),
+            child: _dummyProductImage,
           ),
           Expanded(
             child: _productTitleSection(context),
@@ -49,17 +55,17 @@ class _ProductCardState extends State<ProductCard> with BaseState {
           )
         ],
       ),
-      _incrementAndDeicrementButton(context),
+      _incrementAndDecrementButton(context),
     ]);
   }
 
-  Positioned _incrementAndDeicrementButton(BuildContext context) {
+  Positioned _incrementAndDecrementButton(BuildContext context) {
     return Positioned(
       right: 0,
       child: AnimatedContainer(
         duration: context.durationLow,
-        height: isZero ? 0 : context.dynamicHeight(0.13),
-        width: isZero ? 0 : context.dynamicWidth(.12),
+        height: _isZero ? 0 : context.dynamicHeight(0.13),
+        width: _isZero ? 0 : context.dynamicWidth(.12),
         child: Card(
           color: colorConstants.primary,
           elevation: 10,
@@ -69,27 +75,12 @@ class _ProductCardState extends State<ProductCard> with BaseState {
             children: [
               Expanded(
                 flex: 2,
-                child: IconButton(
-                    onPressed: () =>
-                        context.read<ShopManager>().addShopItem(widget.model),
-                    icon: Icon(isZero ? null : Icons.add)),
+                child: _incrementButton(context),
               ),
-              Expanded(
-                  child: Text(
-                context
-                    .watch<ShopManager>()
-                    .currentCount(widget.model)
-                    .toString(),
-                style: context.textTheme.bodyText2!
-                    .copyWith(color: colorConstants.white),
-              )),
+              Expanded(child: _itemCountText(context)),
               Expanded(
                 flex: 2,
-                child: IconButton(
-                    onPressed: () => context
-                        .read<ShopManager>()
-                        .removeShopItem(widget.model),
-                    icon: Icon(isZero ? null : Icons.remove)),
+                child: _decrementButton(context),
               )
             ],
           ),
@@ -98,18 +89,31 @@ class _ProductCardState extends State<ProductCard> with BaseState {
     );
   }
 
+  IconButton _incrementButton(BuildContext context) {
+    return IconButton(
+        onPressed: () => context.read<ShopManager>().addShopItem(widget.model),
+        icon: Icon(_isZero ? null : Icons.add));
+  }
+
+  Text _itemCountText(BuildContext context) {
+    return Text(
+      context.watch<ShopManager>().currentCount(widget.model).toString(),
+      style: context.textTheme.bodyText2!.copyWith(color: colorConstants.white),
+    );
+  }
+
+  IconButton _decrementButton(BuildContext context) {
+    return IconButton(
+        onPressed: () =>
+            context.read<ShopManager>().removeShopItem(widget.model),
+        icon: Icon(_isZero ? null : Icons.remove));
+  }
+
   Row _productPriceAndAddBagSection(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: [_productPrice(context), _addBag()],
-    );
-  }
-
-  Image _productImageSection() {
-    return Image.network(
-      _dummyImageSrc,
-      fit: BoxFit.cover,
     );
   }
 
@@ -134,7 +138,7 @@ class _ProductCardState extends State<ProductCard> with BaseState {
 
   InkWell _addBag() {
     return InkWell(
-      onTap: changeIsZero,
+      onTap: change_IsZero,
       child: CircleAvatar(
         backgroundColor: colorConstants.white,
         child: Icon(
