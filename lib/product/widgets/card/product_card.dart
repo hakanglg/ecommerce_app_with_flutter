@@ -5,9 +5,11 @@ import '../../../core/base/base_state.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
+import '../../../feature/products/model/store_model.dart';
+
 class ProductCard extends StatefulWidget {
-  const ProductCard({Key? key, required this.model}) : super(key: key);
-  final model;
+  const ProductCard({Key? key, this.model}) : super(key: key);
+  final Products? model;
 
   @override
   State<ProductCard> createState() => _ProductCardState();
@@ -16,26 +18,12 @@ class ProductCard extends StatefulWidget {
 class _ProductCardState extends State<ProductCard> with BaseState {
   final String _dummyImageSrc =
       "https://www.nicepng.com/png/full/98-980274_clothing-clipart-nrilaot84-clipart-clothes.png";
-  int _count = 0;
+
   bool isZero = true;
 
   void changeIsZero() {
     setState(() {
       isZero = !isZero;
-    });
-  }
-
-  void increment() {
-    setState(() {
-      _count++;
-    });
-  }
-
-  void decrement() {
-    setState(() {
-      if (_count > 0) {
-        _count--;
-      }
     });
   }
 
@@ -83,12 +71,15 @@ class _ProductCardState extends State<ProductCard> with BaseState {
                 flex: 2,
                 child: IconButton(
                     onPressed: () =>
-                        context.read<ShopManager>().incrementItem(widget.model),
+                        context.read<ShopManager>().addShopItem(widget.model),
                     icon: Icon(isZero ? null : Icons.add)),
               ),
               Expanded(
                   child: Text(
-                _count.toString(),
+                context
+                    .watch<ShopManager>()
+                    .currentCount(widget.model)
+                    .toString(),
                 style: context.textTheme.bodyText2!
                     .copyWith(color: colorConstants.white),
               )),
@@ -97,7 +88,7 @@ class _ProductCardState extends State<ProductCard> with BaseState {
                 child: IconButton(
                     onPressed: () => context
                         .read<ShopManager>()
-                        .deIncrementItem(widget.model),
+                        .removeShopItem(widget.model),
                     icon: Icon(isZero ? null : Icons.remove)),
               )
             ],
@@ -128,14 +119,14 @@ class _ProductCardState extends State<ProductCard> with BaseState {
       contentPadding: const EdgeInsets.all(0),
       title: Text(
           maxLines: 1,
-          (widget.model.title?.toString().toTitleCase() ?? ""),
+          (widget.model?.title.toTitleCase().toString() ?? ""),
           style: context.textTheme.bodyText2),
     );
   }
 
   Text _productPrice(BuildContext context) {
     return Text(
-      "${widget.model.price?.toString().toTitleCase() ?? ""}\$",
+      "${widget.model?.price.toString()}\$",
       style:
           context.textTheme.bodyText2!.copyWith(color: colorConstants.primary),
     );

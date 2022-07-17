@@ -1,3 +1,4 @@
+import '../../../feature/products/model/store_model.dart';
 import '../card/product_card.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class ProductGridViewBuilder extends StatelessWidget with BaseState {
   });
 
   final int itemCount;
-  final model;
+  final List<Products?> model;
 
   @override
   Widget build(BuildContext context) {

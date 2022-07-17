@@ -55,4 +55,3 @@ class Products {
     return _$ProductsToJson(this);
   }
 }
-
