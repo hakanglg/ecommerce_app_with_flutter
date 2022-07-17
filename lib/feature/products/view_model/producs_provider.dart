@@ -1,12 +1,12 @@
+import 'package:ecommerce_app_with_flutter/feature/products/model/store_model.dart';
+
 import '../service/products_service.dart';
 import 'package:flutter/widgets.dart';
-
-import '../../home/model/store_model.dart';
 
 class ProductsProvider extends ChangeNotifier {
   final IProductsService productsService;
 
-  List<Data> productResources = [];
+  List<Products> productResources = [];
   bool isLoading = false;
 
   ProductsProvider(this.productsService) {
