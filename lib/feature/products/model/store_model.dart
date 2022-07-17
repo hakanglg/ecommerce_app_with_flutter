@@ -31,6 +31,9 @@ class Products {
   String? slug;
   String? image;
 
+  @JsonKey(ignore: true)
+  int count = 0;
+
   Products(
       {this.sId,
       this.title,

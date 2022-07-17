@@ -38,27 +38,3 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'name': instance.name,
       'slug': instance.slug,
     };
-
-Products _$ProductsFromJson(Map<String, dynamic> json) => Products(
-      sId: json['sId'] as String?,
-      title: json['title'] as String?,
-      price: json['price'] as int?,
-      description: json['description'] as String?,
-      imageSource: json['imageSource'] as String?,
-      createdBy: json['createdBy'] as String?,
-      createdAt: json['createdAt'] as String?,
-      updatedAt: json['updatedAt'] as String?,
-      slug: json['slug'] as String?,
-    );
-
-Map<String, dynamic> _$ProductsToJson(Products instance) => <String, dynamic>{
-      'sId': instance.sId,
-      'title': instance.title,
-      'price': instance.price,
-      'description': instance.description,
-      'imageSource': instance.imageSource,
-      'createdBy': instance.createdBy,
-      'createdAt': instance.createdAt,
-      'updatedAt': instance.updatedAt,
-      'slug': instance.slug,
-    };

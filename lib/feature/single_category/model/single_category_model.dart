@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../products/model/store_model.dart';
+
 part 'single_category_model.g.dart';
 
 @JsonSerializable()
@@ -34,40 +36,5 @@ class Data {
 
   Map<String, dynamic> toJson() {
     return _$DataToJson(this);
-  }
-}
-
-@JsonSerializable()
-class Products {
-  String? sId;
-  String? title;
-  int? price;
-  String? description;
-  String? imageSource;
-  String? createdBy;
-  String? createdAt;
-  String? updatedAt;
-  String? slug;
-
-  @JsonKey(ignore: true)
-  int count = 0;
-
-  Products(
-      {this.sId,
-      this.title,
-      this.price,
-      this.description,
-      this.imageSource,
-      this.createdBy,
-      this.createdAt,
-      this.updatedAt,
-      this.slug});
-
-  factory Products.fromJson(Map<String, dynamic> json) {
-    return _$ProductsFromJson(json);
-  }
-
-  Map<String, dynamic> toJson() {
-    return _$ProductsToJson(this);
   }
 }

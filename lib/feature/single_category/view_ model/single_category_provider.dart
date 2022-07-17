@@ -1,4 +1,4 @@
-import '../model/single_category_model.dart';
+import '../../products/model/store_model.dart';
 import 'package:flutter/widgets.dart';
 import '../service/single_category_service.dart';
 

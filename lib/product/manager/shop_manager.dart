@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import '../../feature/single_category/model/single_category_model.dart';
+
+import '../../feature/products/model/store_model.dart';
 
 class ShopManager extends ChangeNotifier {
   List<Products> shopListItems = [];
