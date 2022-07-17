@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../home/model/category_model.dart';
+
 part 'store_model.g.dart';
 
 @JsonSerializable()
@@ -54,19 +56,3 @@ class Products {
   }
 }
 
-@JsonSerializable()
-class Category {
-  String? sId;
-  String? name;
-  String? slug;
-
-  Category({this.sId, this.name, this.slug});
-
-  factory Category.fromJson(Map<String, dynamic> json) {
-    return _$CategoryFromJson(json);
-  }
-
-  Map<String, dynamic> toJson() {
-    return _$CategoryToJson(this);
-  }
-}

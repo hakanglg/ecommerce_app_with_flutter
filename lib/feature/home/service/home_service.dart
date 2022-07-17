@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import '../model/store_model.dart';
+
+import '../model/category_model.dart';
 
 abstract class IHomeService {
   IHomeService(
@@ -9,7 +10,7 @@ abstract class IHomeService {
 
   final Dio dio;
 
-  Future<StoreModel?> fetchCategoryItem();
+  Future<CategoryModel?> fetchCategoryItem();
 }
 
 enum _HomePath { categories }
@@ -18,12 +19,12 @@ class HomeService extends IHomeService {
   HomeService(super.dio);
 
   @override
-  Future<StoreModel?> fetchCategoryItem() async {
+  Future<CategoryModel?> fetchCategoryItem() async {
     final response = await dio.get("/${_HomePath.categories.name}");
     if (response.statusCode == HttpStatus.ok) {
       final jsonBody = response.data;
       if (jsonBody is Map<String, dynamic>) {
-        return StoreModel.fromJson(jsonBody);
+        return CategoryModel.fromJson(jsonBody);
       }
     }
     return null;

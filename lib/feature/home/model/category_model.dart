@@ -1,20 +1,20 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'store_model.g.dart';
+part 'category_model.g.dart';
 
 @JsonSerializable()
-class StoreModel {
+class CategoryModel {
   List<Data>? data;
   int? status;
   String? message;
 
-  StoreModel({this.data, this.status, this.message});
+  CategoryModel({this.data, this.status, this.message});
 
-  factory StoreModel.fromJson(Map<String, dynamic> json) {
-    return _$StoreModelFromJson(json);
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+    return _$CategoryModelFromJson(json);
   }
 
   Map<String, dynamic> toJson() {
-    return _$StoreModelToJson(this);
+    return _$CategoryModelToJson(this);
   }
 }
 
@@ -24,17 +24,6 @@ class Data {
   String? sId;
   String? name;
   String? slug;
-  String? title;
-  int? price;
-  Category? category;
-  String? description;
-  CreatedBy? createdBy;
-  String? createdAt;
-  String? updatedAt;
-  String? image;
-
-  @JsonKey(ignore: true)
-  int count = 0;
 
   Data({this.products, this.sId, this.name, this.slug});
 
@@ -61,22 +50,5 @@ class Category {
 
   Map<String, dynamic> toJson() {
     return _$CategoryToJson(this);
-  }
-}
-
-@JsonSerializable()
-class CreatedBy {
-  String? role;
-  String? sId;
-  String? name;
-
-  CreatedBy({this.role, this.sId, this.name});
-
-  factory CreatedBy.fromJson(Map<String, dynamic> json) {
-    return _$CreatedByFromJson(json);
-  }
-
-  Map<String, dynamic> toJson() {
-    return _$CreatedByToJson(this);
   }
 }

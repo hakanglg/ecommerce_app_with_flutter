@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../model/store_model.dart';
+import '../model/category_model.dart';
 import '../service/home_service.dart';
 
 class HomeProvider extends ChangeNotifier {

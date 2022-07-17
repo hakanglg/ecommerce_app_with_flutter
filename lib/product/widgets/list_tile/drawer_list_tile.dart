@@ -2,7 +2,8 @@ import 'package:ecommerce_app_with_flutter/feature/single_category/view/single_c
 import '../../../core/manager/navigation_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import '../../../feature/home/model/store_model.dart';
+
+import '../../../feature/home/model/category_model.dart';
 
 class DrawerListTile extends StatefulWidget {
   const DrawerListTile({
