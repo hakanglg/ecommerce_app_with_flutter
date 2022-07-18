@@ -1,4 +1,4 @@
-import 'package:ecommerce_app_with_flutter/product/widgets/lottie/circular_loading_lottie.dart';
+import '../../../product/widgets/lottie/circular_loading_lottie.dart';
 import '../../../core/components/column/my_column.dart';
 import '../../../core/components/row/my_row.dart';
 import '../../../product/service/project_dio.dart';

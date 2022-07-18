@@ -1,5 +1,5 @@
-import 'package:ecommerce_app_with_flutter/product/manager/shop_manager.dart';
-import 'package:ecommerce_app_with_flutter/product/widgets/image/dummy_product_image.dart';
+import '../../manager/shop_manager.dart';
+import '../image/dummy_product_image.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/base/base_state.dart';

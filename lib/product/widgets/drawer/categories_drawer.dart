@@ -1,11 +1,11 @@
-import '../../service/project_dio.dart';
-import '../lottie/circular_loading_lottie.dart';
-
-import '../../../feature/home/view_model/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
+
+import '../../../feature/home/view_model/home_provider.dart';
+import '../../service/project_dio.dart';
 import '../list_tile/drawer_list_tile.dart';
+import '../lottie/circular_loading_lottie.dart';
 
 class CategoriesDrawer extends StatelessWidget with ProjectDioMixin {
   CategoriesDrawer({

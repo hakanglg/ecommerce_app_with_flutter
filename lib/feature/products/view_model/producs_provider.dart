@@ -1,4 +1,4 @@
-import 'package:ecommerce_app_with_flutter/feature/products/model/store_model.dart';
+import '../model/store_model.dart';
 
 import '../service/products_service.dart';
 import 'package:flutter/widgets.dart';

@@ -1,4 +1,4 @@
-import 'package:ecommerce_app_with_flutter/feature/single_category/view/single_category_view.dart';
+import '../../../feature/single_category/view/single_category_view.dart';
 import '../../../core/manager/navigation_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';

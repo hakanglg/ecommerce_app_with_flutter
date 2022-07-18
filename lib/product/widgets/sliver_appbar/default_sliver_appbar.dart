@@ -1,7 +1,7 @@
-import 'package:ecommerce_app_with_flutter/core/manager/navigation_manager.dart';
-import 'package:ecommerce_app_with_flutter/feature/basket/view/basket_view.dart';
-import 'package:ecommerce_app_with_flutter/product/widgets/search/search_bar.dart';
-import 'package:ecommerce_app_with_flutter/product/manager/shop_manager.dart';
+import '../../../core/manager/navigation_manager.dart';
+import '../../../feature/basket/view/basket_view.dart';
+import '../search/search_bar.dart';
+import '../../manager/shop_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';

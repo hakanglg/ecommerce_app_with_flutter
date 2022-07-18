@@ -1,15 +1,16 @@
-import '../view_model/home_provider.dart';
-import '../../products/view/products_view.dart';
+import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
+import 'package:provider/provider.dart';
+
 import '../../../core/base/base_state.dart';
 import '../../../core/components/row/my_row.dart';
 import '../../../core/constants/image/image_enum.dart';
 import '../../../core/manager/navigation_manager.dart';
 import '../../../product/service/project_dio.dart';
-import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
-import 'package:provider/provider.dart';
 import '../../../product/widgets/drawer/categories_drawer.dart';
 import '../../../product/widgets/lottie/circular_loading_lottie.dart';
+import '../../products/view/products_view.dart';
+import '../view_model/home_provider.dart';
 
 // ignore: must_be_immutable
 class HomeView extends StatelessWidget

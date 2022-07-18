@@ -1,4 +1,4 @@
-import 'package:ecommerce_app_with_flutter/feature/home/view/home_view.dart';
+import '../../feature/home/view/home_view.dart';
 
 import '../../feature/products/view/products_view.dart';
 

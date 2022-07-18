@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:ecommerce_app_with_flutter/feature/products/model/store_model.dart';
+import '../model/store_model.dart';
 
 abstract class IProductsService {
   IProductsService(

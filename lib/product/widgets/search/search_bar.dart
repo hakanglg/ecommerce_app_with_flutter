@@ -1,5 +1,5 @@
-import 'package:ecommerce_app_with_flutter/feature/products/view_model/producs_provider.dart';
-import 'package:ecommerce_app_with_flutter/product/widgets/image/dummy_product_image.dart';
+import '../../../feature/products/view_model/producs_provider.dart';
+import '../image/dummy_product_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';

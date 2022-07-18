@@ -1,8 +1,8 @@
-import '../../../feature/products/model/store_model.dart';
-import '../card/product_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/base/base_state.dart';
+import '../../../feature/products/model/store_model.dart';
+import '../card/product_card.dart';
 
 // ignore: must_be_immutable
 class ProductGridViewBuilder extends StatelessWidget with BaseState {

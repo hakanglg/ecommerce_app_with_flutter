@@ -1,8 +1,8 @@
-import 'package:ecommerce_app_with_flutter/core/components/column/my_column.dart';
-import 'package:ecommerce_app_with_flutter/core/components/row/my_row.dart';
-import 'package:ecommerce_app_with_flutter/core/manager/navigation_manager.dart';
-import 'package:ecommerce_app_with_flutter/product/manager/shop_manager.dart';
-import 'package:ecommerce_app_with_flutter/product/widgets/card/basket_product_card.dart';
+import '../../../core/components/column/my_column.dart';
+import '../../../core/components/row/my_row.dart';
+import '../../../core/manager/navigation_manager.dart';
+import '../../../product/manager/shop_manager.dart';
+import '../../../product/widgets/card/basket_product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';

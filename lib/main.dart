@@ -1,9 +1,9 @@
-import 'package:ecommerce_app_with_flutter/feature/home/service/home_service.dart';
-import 'package:ecommerce_app_with_flutter/feature/home/view_model/home_provider.dart';
-import 'package:ecommerce_app_with_flutter/feature/products/service/products_service.dart';
-import 'package:ecommerce_app_with_flutter/feature/products/view_model/producs_provider.dart';
-import 'package:ecommerce_app_with_flutter/product/manager/shop_manager.dart';
-import 'package:ecommerce_app_with_flutter/product/service/project_dio.dart';
+import 'feature/home/service/home_service.dart';
+import 'feature/home/view_model/home_provider.dart';
+import 'feature/products/service/products_service.dart';
+import 'feature/products/view_model/producs_provider.dart';
+import 'product/manager/shop_manager.dart';
+import 'product/service/project_dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
