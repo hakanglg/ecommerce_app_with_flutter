@@ -1,6 +1,7 @@
+import 'package:ecommerce_app_with_flutter/feature/home/view/home_view.dart';
+
 import '../../feature/products/view/products_view.dart';
 
-import '../../feature/home/view/home_view.dart';
 import '../../feature/single_category/view/single_category_view.dart';
 
 class NavigatorRoutes {

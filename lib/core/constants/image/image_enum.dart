@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 enum ImageItems { HomeBackground, ProductBackground, DummyProductImage }
 
 extension ImageItemsExtension on ImageItems {

@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_with_flutter/core/manager/navigation_manager.dart';
 import 'package:ecommerce_app_with_flutter/feature/basket/view/basket_view.dart';
+import 'package:ecommerce_app_with_flutter/product/widgets/search/search_bar.dart';
 import 'package:ecommerce_app_with_flutter/product/manager/shop_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
@@ -9,6 +10,7 @@ import '../../../core/base/base_state.dart';
 import '../../../core/constants/image/image_enum.dart';
 import '../../../feature/home/view/home_view.dart';
 
+// ignore: must_be_immutable
 class DefaultSliverAppBar extends StatelessWidget
     with BaseState, NavigatorManager {
   DefaultSliverAppBar({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class DefaultSliverAppBar extends StatelessWidget
       centerTitle: true,
       backgroundColor: colorConstants.black,
       actions: [
-        _searchButton(context),
+        SearchBar(),
         _homeButton(context),
         Visibility(
           visible: context.watch<ShopManager>().totalMoney == 0 ? false : true,
@@ -42,13 +44,6 @@ class DefaultSliverAppBar extends StatelessWidget
   IconButton _homeButton(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.home),
-      onPressed: () => navigateToWidget(context, HomeView()),
-    );
-  }
-
-  IconButton _searchButton(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.search),
       onPressed: () => navigateToWidget(context, HomeView()),
     );
   }

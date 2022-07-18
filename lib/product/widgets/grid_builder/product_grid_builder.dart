@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/base/base_state.dart';
 
+// ignore: must_be_immutable
 class ProductGridViewBuilder extends StatelessWidget with BaseState {
   ProductGridViewBuilder({
     super.key,

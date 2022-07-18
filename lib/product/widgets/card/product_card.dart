@@ -29,7 +29,6 @@ class _ProductCardState extends State<ProductCard> with BaseState {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     model = widget.model;
   }

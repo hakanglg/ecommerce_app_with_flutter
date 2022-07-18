@@ -28,7 +28,7 @@ class _BasketViewState extends State<BasketView>
         child: MyColumn(
           child: Column(
             children: [
-              Expanded(flex: 9, child: _BasketListViewBuilder(context)),
+              Expanded(flex: 9, child: _basketListViewBuilder(context)),
               Expanded(child: _totalMoneyTextSection(context)),
               Expanded(child: _dummyCheckoutButton(context)),
             ],
@@ -38,7 +38,7 @@ class _BasketViewState extends State<BasketView>
     );
   }
 
-  ListView _BasketListViewBuilder(BuildContext context) {
+  ListView _basketListViewBuilder(BuildContext context) {
     return ListView.builder(
         itemCount: context.watch<ShopManager>().filteredListItems.length,
         itemBuilder: ((context, index) => BasketProductCard(

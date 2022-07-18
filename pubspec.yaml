@@ -18,7 +18,9 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  # Devolopment
   logger: ^1.1.0  
+
   # STATE
   provider: ^6.0.0
 
@@ -33,6 +35,9 @@ dependencies:
   # RESPONSIVE UI
   kartal: ^2.3.2
   flutter_screenutil: ^5.5.3+2
+
+  # SEARCH
+  search_page: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:

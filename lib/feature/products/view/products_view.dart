@@ -42,12 +42,12 @@ class _ProductsViewState extends State<ProductsView> with ProjectDioMixin {
                 ],
             body: context.watch<ProductsProvider>().isLoading
                 ? const CircularLoadingLottie()
-                : _CompleteSection(context)),
+                : _completeSection(context)),
       ),
     );
   }
 
-  MyColumn _CompleteSection(BuildContext context) {
+  MyColumn _completeSection(BuildContext context) {
     return MyColumn(
         child: MyRow(
             child: ProductGridViewBuilder(
