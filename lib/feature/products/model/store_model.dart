@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../home/model/category_model.dart';
-
 part 'store_model.g.dart';
 
 @JsonSerializable()
@@ -53,5 +51,53 @@ class Products {
 
   Map<String, dynamic> toJson() {
     return _$ProductsToJson(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Products &&
+        other.sId == sId &&
+        other.title == title &&
+        other.price == price &&
+        other.category == category &&
+        other.description == description &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
+        other.slug == slug &&
+        other.image == image &&
+        other.count == count;
+  }
+
+  @override
+  int get hashCode {
+    return sId.hashCode ^
+        title.hashCode ^
+        price.hashCode ^
+        category.hashCode ^
+        description.hashCode ^
+        createdAt.hashCode ^
+        updatedAt.hashCode ^
+        slug.hashCode ^
+        image.hashCode ^
+        count.hashCode;
+  }
+}
+
+@JsonSerializable()
+class Category {
+  String? sId;
+  String? name;
+  String? slug;
+
+  Category({this.sId, this.name, this.slug});
+
+  factory Category.fromJson(Map<String, dynamic> json) {
+    return _$CategoryFromJson(json);
+  }
+
+  Map<String, dynamic> toJson() {
+    return _$CategoryToJson(this);
   }
 }

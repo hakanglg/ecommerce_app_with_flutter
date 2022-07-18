@@ -36,19 +36,3 @@ class Data {
   }
 }
 
-@JsonSerializable()
-class Category {
-  String? sId;
-  String? name;
-  String? slug;
-
-  Category({this.sId, this.name, this.slug});
-
-  factory Category.fromJson(Map<String, dynamic> json) {
-    return _$CategoryFromJson(json);
-  }
-
-  Map<String, dynamic> toJson() {
-    return _$CategoryToJson(this);
-  }
-}

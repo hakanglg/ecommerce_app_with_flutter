@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 import '../../../core/base/base_state.dart';
 import '../../../core/constants/image/image_enum.dart';
+import '../../../feature/home/view/home_view.dart';
 
 class DefaultSliverAppBar extends StatelessWidget
     with BaseState, NavigatorManager {
@@ -21,6 +22,8 @@ class DefaultSliverAppBar extends StatelessWidget
       centerTitle: true,
       backgroundColor: colorConstants.black,
       actions: [
+        _searchButton(context),
+        _homeButton(context),
         Visibility(
           visible: context.watch<ShopManager>().totalMoney == 0 ? false : true,
           child: AnimatedContainer(
@@ -36,6 +39,20 @@ class DefaultSliverAppBar extends StatelessWidget
     );
   }
 
+  IconButton _homeButton(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.home),
+      onPressed: () => navigateToWidget(context, HomeView()),
+    );
+  }
+
+  IconButton _searchButton(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.search),
+      onPressed: () => navigateToWidget(context, HomeView()),
+    );
+  }
+
   InkWell _basketChipButton(BuildContext context) {
     return InkWell(
       onTap: () => navigateToWidget(context, const BasketView()),
@@ -44,7 +61,7 @@ class DefaultSliverAppBar extends StatelessWidget
           backgroundColor: colorConstants.black,
           avatar: const Icon(Icons.shopping_basket_rounded),
           label: Text(
-            context.watch<ShopManager>().totalMoney.toString(),
+            "${context.watch<ShopManager>().totalMoney.toString()} \$",
             style: context.textTheme.headline3!.copyWith(
               color: colorConstants.white,
             ),

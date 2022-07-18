@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 import '../../feature/products/model/store_model.dart';
 
@@ -38,4 +39,30 @@ class ShopManager extends ChangeNotifier {
     sumTotalMoney();
     notifyListeners();
   }
+
+  void removeAllShopItem(Products? model) {
+    if (model?.count == 0) return;
+    model?.count = 0;
+    model?.price = 0;
+    shopListItems.remove(model);
+    sumTotalMoney();
+    notifyListeners();
+  }
+
+  void incrementItem(Products? model) {
+    if (!shopListItems.contains(model)) {
+      Logger().wtf("Item has not found");
+    } else {
+      shopListItems
+          .singleWhere((element) => element?.title == model?.title)
+          ?.count++;
+      sumTotalMoney();
+    }
+    notifyListeners();
+  }
+
+  
+
+
+
 }

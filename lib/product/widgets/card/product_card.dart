@@ -17,12 +17,21 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> with BaseState {
+  late Products? model;
+
   bool _isZero = true;
 
   void change_IsZero() {
     setState(() {
       _isZero = !_isZero;
     });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    model = widget.model;
   }
 
   @override
@@ -83,21 +92,20 @@ class _ProductCardState extends State<ProductCard> with BaseState {
 
   IconButton _incrementButton(BuildContext context) {
     return IconButton(
-        onPressed: () => context.read<ShopManager>().addShopItem(widget.model),
+        onPressed: () => context.read<ShopManager>().addShopItem(model),
         icon: Icon(_isZero ? null : Icons.add));
   }
 
   Text _itemCountText(BuildContext context) {
     return Text(
-      context.watch<ShopManager>().currentCount(widget.model).toString(),
+      context.watch<ShopManager>().currentCount(model).toString(),
       style: context.textTheme.bodyText2!.copyWith(color: colorConstants.white),
     );
   }
 
   IconButton _decrementButton(BuildContext context) {
     return IconButton(
-        onPressed: () =>
-            context.read<ShopManager>().removeShopItem(widget.model),
+        onPressed: () => context.read<ShopManager>().removeShopItem(model),
         icon: Icon(_isZero ? null : Icons.remove));
   }
 
@@ -115,14 +123,14 @@ class _ProductCardState extends State<ProductCard> with BaseState {
       contentPadding: const EdgeInsets.all(0),
       title: Text(
           maxLines: 1,
-          (widget.model?.title.toTitleCase().toString() ?? ""),
+          (model?.title.toTitleCase().toString() ?? ""),
           style: context.textTheme.bodyText2),
     );
   }
 
   Text _productPrice(BuildContext context) {
     return Text(
-      "${widget.model?.price.toString()}\$",
+      "${model?.price.toString()}\$",
       style:
           context.textTheme.bodyText2!.copyWith(color: colorConstants.primary),
     );

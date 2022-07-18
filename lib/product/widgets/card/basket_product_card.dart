@@ -16,19 +16,21 @@ class BasketProductCard extends StatefulWidget {
 class _BasketProductCardState extends State<BasketProductCard> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-            height: context.dynamicHeight(0.15),
-            child: Row(
-              children: [
-                const Expanded(flex: 1, child: DummyProductImage()),
-                Expanded(flex: 2, child: _productInfoSection(context))
-              ],
-            )),
-        context.emptySizedHeightBoxLow3x
-      ],
-    );
+    return widget.model?.count == 0
+        ? Container()
+        : Column(
+            children: [
+              SizedBox(
+                  height: context.dynamicHeight(0.15),
+                  child: Row(
+                    children: [
+                      const Expanded(flex: 1, child: DummyProductImage()),
+                      Expanded(flex: 2, child: _productInfoSection(context))
+                    ],
+                  )),
+              context.emptySizedHeightBoxLow3x
+            ],
+          );
   }
 
   Column _productInfoSection(BuildContext context) {

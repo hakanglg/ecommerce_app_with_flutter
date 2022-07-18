@@ -37,15 +37,3 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
       'name': instance.name,
       'slug': instance.slug,
     };
-
-Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
-      sId: json['sId'] as String?,
-      name: json['name'] as String?,
-      slug: json['slug'] as String?,
-    );
-
-Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
-      'sId': instance.sId,
-      'name': instance.name,
-      'slug': instance.slug,
-    };
