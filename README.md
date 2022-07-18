@@ -1,16 +1,10 @@
-# ecommerce_app_with_flutter
+E-commerce App with Provider and Dio
 
-A new Flutter project.
+<img src="https://user-images.githubusercontent.com/58719777/179570979-7c77d4d1-5570-4c6b-bfd6-5488b64c4c34.png" width="400" height="800"/>
+<img src="https://user-images.githubusercontent.com/58719777/179570746-cd23b6bc-d7cd-411f-b186-9fac61172e30.png" width="400" height="800"/>
+<img src="https://user-images.githubusercontent.com/58719777/179570750-7296bd9d-2373-441b-9e3d-5f17c2342993.png" width="400" height="800"/>
+<img src="https://user-images.githubusercontent.com/58719777/179570755-e2698ceb-9a59-4231-b6c0-76816668dad6.png" width="400" height="800"/>
+<img src="https://user-images.githubusercontent.com/58719777/179570757-5992a04a-984b-44e0-9a6d-20310bf8bb7c.png" width="400" height="800"/>
+<img src="https://user-images.githubusercontent.com/58719777/179570762-1e96a995-d367-4cef-ae7a-fd912aae65fe.png" width="400" height="800"/>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ 
